@@ -1,0 +1,39 @@
+{
+  "name": "high-nodejs-tj",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "server": "cross-env NODE_ENV=development nodemon app.ts --exec \"ts-node --files -r dotenv/config\"",
+    "start": "cross-env NODE_ENV=development nodemon --watch \"template\" app.ts --exec \"ts-node --files -r dotenv/config\""
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "ejs": "^3.1.6",
+    "generic-pool": "^3.8.2",
+    "html-docx-js": "^0.3.1",
+    "html-to-docx": "^1.2.4",
+    "koa": "^2.13.4",
+    "koa-body": "^4.2.0",
+    "koa-router": "^10.1.1",
+    "koa-static": "^5.0.0",
+    "puppeteer": "^12.0.0",
+    "querystring": "^0.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@types/ejs": "^3.1.0",
+    "@types/koa": "^2.13.4",
+    "@types/koa-router": "^7.4.4",
+    "@types/koa-static": "^4.0.2",
+    "@types/node": "^16.11.11",
+    "babel-loader": "^8.2.3",
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.15",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
+  }
+}

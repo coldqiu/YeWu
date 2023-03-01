@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" style="font: Microsoft YaHei">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>账单模板</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+
+      td {
+        padding: 5px 8px;
+        font-size: 12px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgb(100, 100, 100);
+        background: #fff;
+        vertical-align: bottom;
+        word-wrap: break-word;
+        word-break: break-all;
+      }
+      thead,
+      tfoot {
+        background-color: #333;
+      }
+      .title {
+        margin-bottom: 15px;
+        font-size: 26px;
+        font-weight: 700;
+        text-align: center;
+      }
+      .content {
+        margin: 10px 0;
+      }
+      .underline {
+        text-decoration: underline;
+      }
+      p {
+        line-height: 1.5;
+        margin: 5px 0;
+        font-size: 13px;
+      }
+      .container {
+        margin: 0 auto;
+        letter-spacing: 1px;
+      }
+
+      .flex {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .textIndent {
+        text-indent: 25px;
+      }
+      .footer {
+        margin-top: 18px;
+        margin-left: 25px;
+      }
+      .lucy {
+        margin: 10px 0;
+      }
+      .right {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrap">
+        <div style="text-align: right"><%= info.statementNo %></div>
+        <div class="title">AA<%= info.buTypeLabel %>对账单</div>
+        <div class="name"><%= info.customerName %>:</div>
+        <div class="content">
+          <p class="textIndent">
+            贵司<% if(info.contractTime) { %><span>于<span class="underline"><%= info.contractTime %></span>，</span><%
+            }%>与我司签订<%= info.buTypeLabel%>服务合同。根据合同约定<%= info.buTypeLabel %>服务为
+            <span class="underline"><%= info.feeTypeLabel %> </span>月结。 （ <% if(info.feeType ===0 ) { %>
+            结算数=成功数=提交数-失败数-未知数 <% } %> <% if(info.feeType ===1 ) { %> 结算数=提交数<% } %> <%
+            if(info.feeType ===2 && info.unknownRate === '100.00' ) { %> 结算数=提交数-失败数 <% } %> <% if(info.feeType
+            ===2 && info.unknownRate !== '100.00' ) { %> 结算数=成功数+未知数*未知数计费比率，未知数计费比率：【<%=
+            info.unknownRate %>】% <% } %> ）
+          </p>
+          <p>
+            <span class="underline"> <%= info.startDate %></span>至<span class="underline"><%= info.endDate %></span
+            >贵司<%= info.buTypeLabel %>使用结算如下:
+          </p>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <% for(let item of tableDesc) { %>
+              <td class="thead-td"><%= item.dimensionName %></td>
+              <% } %>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let node of info.rowList) { %>
+            <tr>
+              <% for(let item of tableDesc) { %> <% if(item.align) { %>
+              <td style="text-align: right"><%= node[item.mappingAttributeName] %></td>
+              <% } else{ %>
+              <td><%= node[item.mappingAttributeName] %></td>
+              <% } %> <% } %>
+            </tr>
+            <% } %>
+
+            <!--  -->
+            <% if(info.diffAdjust) { %>
+            <tr>
+              <td colspan="<%= tableDesc.length -1 %>">对账差异调整</td>
+              <td><%= info.diffAdjust %></td>
+            </tr>
+            <% } %>
+
+            <tr>
+              <td colspan="<%= queryLength %>">合计</td>
+              <!-- <td>统计维度的待处理</td> -->
+
+              <% for(let item of tableDesc) { %> <% if (item.type === 1 ) { %> <% if(item.align) { %>
+              <td style="text-align: right"><%= info[item.mappingAttributeName+'Sum'] %></td>
+              <% } else{ %>
+              <td><%= info[item.mappingAttributeName+'Sum'] %></td>
+              <% } %> <% } %> <% } %>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="content">
+          <p>
+            综上所述，合计贵司结算<%= info.buTypeLabel %>数量：<span class="underline"><%= info.settleTotal %></span
+            >条，需付费金额：<span class="underline"><%= info.settlePaymentSmall %></span>元,（大写：<span
+              class="underline"
+              ><%= info.settlePaymentBig %></span
+            >）。
+          </p>
+          <p>来函特请贵司3个工作日内核对，如无疑异，我司将安排开票并请贵司结算付款。</p>
+        </div>
+
+        <div class="footer">
+          <p class="lucy">顺颂商祺！</p>
+          <div class="left">
+
+             <p>收款银行账户如下：</p>
+            <% if(info.bankLang === 0) { %>
+            <div class="cn">
+              <p>开户名称：<%= info.bankAccountName %></p>
+              <p>开户银行：<%= info.bankName %></p>
+              <p>开户账号：<%= info.bankAccount %></p>
+            </div>
+            <% } %> <% if(info.bankLang === 1) { %>
+            <div class="en">
+              <p>Company Name：<%= info.bankAccountName %></p>
+              <p>Address：<%= info.bankAddress %></p>
+              <p>Bank Name：<%= info.bankName %></p>
+              <p>Swift Code：<%= info.interBankNo %></p>
+              <p>HKD account：<%= info.bankAccount %></p>
+            </div>
+            <% }%> <% if(info.bankLang !== 0 && info.bankLang !== 1 ) { %>
+            <div class="cn">
+              <p>开户名称：<%= info.bankAccountName %></p>
+              <p>开户银行：<%= info.bankName %></p>
+              <p>开户账号：<%= info.bankAccount %></p>
+            </div>
+            <% } %>
+          </div>
+          <div class="right">
+            <p>上海AABB有限公司</p>
+            <p><%= info.curDate %></p>
+          </div>
+        </div>
+      </div>
+      <%# ejs 注释语法 %>
+    </div>
+  </body>
+</html>
