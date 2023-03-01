@@ -411,11 +411,11 @@ export default {
           value: 1,
         },
         {
-          name: "创蓝国际",
+          name: "国际",
           value: 2,
         },
         {
-          name: "创蓝万数",
+          name: "万数",
           value: 3,
         },
         {
@@ -729,11 +729,11 @@ export default {
       //     value: 1
       //   },
       //   {
-      //     name: "创蓝国际",
+      //     name: "国际",
       //     value: 2
       //   },
       //   {
-      //     name: "创蓝万数",
+      //     name: "万数",
       //     value: 3
       //   },
       // 国内："stateType":1
