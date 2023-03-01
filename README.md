@@ -13,9 +13,9 @@
 * 客户账单信息文件【word pdf格式】生成服务，核心是 使用`ejs`+数据，生成html文件，html文件+无头浏览器`puppeteer`生成pdf文件，html文件+`html-docx-js`生成word文件；
   * 代码在html_to_pdf目录
 
-* vue2常用代码，在vue2_crud目录
+* vue2常用代码，UI:`element-ui`在vue2_crud目录 
 
-* react常用代码，在react_crud目录
+* react常用代码，UI:`antDesign Procomponent`在react_crud目录
 
 * AST脚本（解析table-column)，在目录ast_script
 
