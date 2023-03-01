@@ -1,0 +1,43 @@
+.ant-tabs-nav-wrap {
+  padding-left: 35px;
+  background: #fff;
+}
+
+.ant-tabs-nav {
+  margin-bottom: 12px !important;
+}
+
+.ant-pro-table-search {
+  padding-bottom: 0px !important;
+  margin-bottom: 12px !important;
+}
+
+.ant-form-item {
+  margin-bottom: 18px !important;
+}
+
+.react-viewer-img-details {
+  display: none;
+}
+.react-viewer-showTotal {
+  float: none !important;
+  font-size: 30px;
+  color: #ffff;
+  font-weight: 600;
+}
+
+.EditWrap .ant-form-item-label {
+  padding-bottom: 0px;
+}
+
+.EditWrap .ant-form-item {
+  margin-bottom: 13px !important;
+}
+
+.drawer_divider_horizontal {
+  margin: 12px 0;
+}
+
+.drawer_table_wrap .ant-card-body {
+  padding: 0;
+}

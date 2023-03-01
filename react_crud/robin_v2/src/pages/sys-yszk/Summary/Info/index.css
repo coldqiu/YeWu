@@ -1,0 +1,22 @@
+.drawer_table_wrap .ant-pro-table-search {
+  margin-bottom: 0 !important;
+  padding-top: 12px;
+}
+
+.drawer_table_wrap .ant-form-item {
+  margin-bottom: 0px !important;
+}
+.drawer_table_wrap .ant-pro-table-list-toolbar-container {
+  padding: 5px 0 0 0;
+  /* margin-top: -8px; */
+}
+.drawer_table_wrap .ant-popover-inner-content {
+  /* max-height: 330px !important; */
+}
+/* .ant-popover-inner {
+  max-height: 400px;
+  background-color: #fff;
+} */
+.ant-popover-inner-content {
+  /* background-color: #fff; */
+}

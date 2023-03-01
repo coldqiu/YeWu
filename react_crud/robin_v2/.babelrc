@@ -1,0 +1,4 @@
+{
+  "plugins": ["lodash", "@babel/plugin-syntax-optional-chaining"],
+  "presets": [["@babel/env", { "targets": { "node": 6 } }]]
+}

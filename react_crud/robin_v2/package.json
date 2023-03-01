@@ -1,0 +1,63 @@
+{
+  "name": "rebuild-robin",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@ant-design/pro-descriptions": "^1.10.27",
+    "@ant-design/pro-form": "^1.59.3",
+    "@ant-design/pro-layout": "^6.31.7",
+    "@ant-design/pro-table": "^2.61.7",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "antd": "^4.18.0",
+    "axios": "^0.24.0",
+    "classnames": "^2.3.1",
+    "dom-to-image": "^2.6.0",
+    "js-cookie": "^3.0.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    "nanoid": "^3.3.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-draggable": "^4.4.4",
+    "react-router-dom": "^6.1.1",
+    "react-scripts": "5.0.0",
+    "react-viewer": "^3.2.2",
+    "web-vitals": "^2.1.2"
+  },
+  "scripts": {
+    "start": "rescripts start",
+    "stable": "rescripts build --mode stable",
+    "build": "rescripts build --mode production",
+    "test": "rescripts test",
+    "eject": "rescripts eject"
+  },
+  "homepage": "/build/",
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/plugin-syntax-optional-chaining": "^7.8.3",
+    "@babel/preset-env": "^7.16.5",
+    "@rescripts/cli": "0.0.16",
+    "babel-plugin-lodash": "^3.3.4"
+  }
+}
