@@ -19,4 +19,6 @@
 
 * AST脚本（解析table-column)，在目录ast_script
 
+* [rollup基本配置](https://github.com/coldqiu/test_npm_10086)
+
 
